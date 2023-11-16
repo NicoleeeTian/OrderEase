@@ -1,0 +1,13 @@
+<!-- messages is not passed to html file through context -->
+<!-- The reason why we can access it is in Django settings.py context_processors includes messages -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} show-notification" role="alert">
+            <!-- show-notification customs.css there is animation -->
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+           <strong>{{message}}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
